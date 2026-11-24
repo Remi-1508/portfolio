@@ -41,6 +41,7 @@ export default function Hero() {
           </h1>
           <p className="hero__role">{profile.role}</p>
           <p className="hero__tagline">{profile.tagline}</p>
+          <p className="status"><span className="status__dot" />{profile.status}</p>
 
           <div className="hero__actions">
             <a className="btn btn--primary" href="#contact">Me contacter</a>

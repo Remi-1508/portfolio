@@ -18,6 +18,9 @@ export default function CV() {
                 Télécharger (PDF)
               </a>
             </div>
+            <p className="cv__ats">
+              <a href={profile.cvAts} target="_blank" rel="noreferrer">Version ATS (PDF sobre)</a>
+            </p>
           </div>
 
           <div className="cv__paper" aria-hidden="true">
