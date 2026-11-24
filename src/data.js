@@ -13,8 +13,7 @@ export const profile = {
     "Je transforme les données en outils clairs et utiles — avec une attention particulière à l'humain derrière chaque écran.",
   github: 'https://github.com/Remi-1508',
   linkedin: 'https://www.linkedin.com/in/remi-monier-ensc',
-  // TODO : ton adresse e-mail
-  email: 'ton.adresse@email.com',
+  email: 'remimonier123@gmail.com',
   // Dépose ton CV dans /public/cv.pdf
   cv: './cv.pdf',
 }
@@ -75,23 +74,23 @@ export const future = {
 export const skills = [
   {
     title: 'Langages',
-    items: ['Python', 'JavaScript', 'SQL', 'HTML / CSS'], // TODO : ajoute R, Java, C… si pertinent
+    items: ['Python', 'R', 'SQL', 'JavaScript', 'HTML / CSS'], // TODO : ajoute les autres langages (C#…)
   },
   {
     title: 'Data & IA',
-    items: ['Analyse de données', 'Visualisation de données', 'Machine learning', 'Statistiques', 'Affective computing'],
+    items: ['Analyse de données', 'Visualisation de données', 'Machine learning', 'PyTorch', 'Statistiques', 'Affective computing'],
   },
   {
     title: 'Web',
-    items: ['React', 'FastAPI', 'API REST', 'Vite'],
+    items: ['React', 'FastAPI', 'API REST', 'Firebase', 'Bases de données relationnelles'],
   },
   {
     title: 'Outils',
-    items: ['Git & GitHub', 'GPX / graphes (OSM)', 'Google Sheets'], // TODO
+    items: ['Git & GitHub', 'OpenStreetMap', 'Méthode Agile', 'UX / UI', 'Canva', 'Pack Office'],
   },
   {
     title: 'Soft skills',
-    items: ['Gestion de projet', 'Esprit de synthèse', 'Travail en équipe', 'Curiosité'],
+    items: ['Facteur humain', 'Travail en équipe', 'Présentation de résultats', 'Communication en anglais'],
   },
 ]
 
