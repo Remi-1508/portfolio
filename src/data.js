@@ -74,7 +74,7 @@ export const future = {
 export const skills = [
   {
     title: 'Langages',
-    items: ['Python', 'R', 'SQL', 'JavaScript', 'HTML / CSS'], // TODO : ajoute les autres langages (C#…)
+    items: ['Python', 'R', 'SQL', 'JavaScript', 'HTML / CSS'], // TODO : ajoute les autres langages que tu utilises
   },
   {
     title: 'Data & IA',
