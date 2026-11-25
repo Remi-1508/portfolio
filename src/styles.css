@@ -490,20 +490,20 @@ main:focus {
 .runner-loop__pill rect {
   fill: #fff;
 }
-.runner-loop__pill rect.tone-blue { fill: #d3e6f8; }
-.runner-loop__pill rect.tone-violet { fill: #e0dcf8; }
-.runner-loop__pill rect.tone-amber { fill: #fbe4bd; }
-.runner-loop__pill rect.tone-rose { fill: #f7cdda; }
+.runner-loop__pill rect.tone-cream { fill: #fbefd9; }
+.runner-loop__pill rect.tone-blush { fill: #f7d3da; }
+.runner-loop__pill rect.tone-caramel { fill: #ecd0b6; }
+.runner-loop__pill rect.tone-mauve { fill: #e9b6c2; }
 .runner-loop__pill text {
   fill: var(--ink);
   font-family: var(--font-sans);
   font-size: 14px;
   font-weight: 500;
 }
-.runner-loop__pill text.tone-blue { fill: #1f4e79; }
-.runner-loop__pill text.tone-violet { fill: #3c3489; }
-.runner-loop__pill text.tone-amber { fill: #633806; }
-.runner-loop__pill text.tone-rose { fill: #72243e; }
+.runner-loop__pill text.tone-cream,
+.runner-loop__pill text.tone-blush,
+.runner-loop__pill text.tone-caramel,
+.runner-loop__pill text.tone-mauve { fill: var(--ink); }
 .runner-loop__pill {
   animation: loop-float 4s ease-in-out infinite;
 }
@@ -520,36 +520,31 @@ main:focus {
   font-size: 20px;
 }
 
-/* Le personnage : une foulée tranquille, et un petit trébuchement toutes les 10 s */
-.runner__trip {
-  animation: runner-trip 10s ease-in-out infinite;
-}
-.runner__poof circle {
-  fill: #fff;
-  opacity: 0;
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: runner-poof 10s ease-out infinite;
-}
+/* Le personnage : une foulée tranquille */
 .runner-loop.is-paused * {
   animation-play-state: paused !important;
 }
+.hero__art {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
 .loop-pause {
-  position: absolute;
-  right: 0;
-  bottom: -4px;
-  padding: 6px 14px;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
   border: 1px solid var(--line);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  background: #fff;
   color: var(--ink);
-  font: inherit;
-  font-size: 0.8rem;
-  font-weight: 500;
   cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
 }
 .loop-pause:hover {
-  background: #fff;
+  background: var(--bg-tint);
+  transform: scale(1.06);
 }
 .runner__shadow {
   fill: var(--ink);
@@ -596,24 +591,6 @@ main:focus {
   animation: runner-arm 0.6s ease-in-out infinite -0.3s;
 }
 
-@keyframes runner-trip {
-  0%, 85% { transform: translate(0, 0) rotate(0deg) scale(1, 1); }
-  87.5% { transform: translate(-2px, 0) rotate(-10deg) scale(1, 1); }
-  89.5% { transform: translate(8px, -2px) rotate(60deg) scale(1, 1); }
-  90.5% { transform: translate(12px, -10px) rotate(90deg) scale(1.15, 0.85); }
-  91.5% { transform: translate(12px, -10px) rotate(90deg) scale(0.97, 1.05); }
-  95% { transform: translate(12px, -10px) rotate(90deg) scale(1, 1); }
-  96.5% { transform: translate(8px, -4px) rotate(30deg) scale(1.1, 0.9); }
-  98% { transform: translate(0, 0) rotate(-8deg) scale(0.95, 1.08); }
-  99% { transform: translate(0, 0) rotate(3deg) scale(1.05, 0.95); }
-  100% { transform: translate(0, 0) rotate(0deg) scale(1, 1); }
-}
-@keyframes runner-poof {
-  0%, 89.5% { opacity: 0; transform: scale(0.3); }
-  90.5% { opacity: 0.8; transform: scale(1); }
-  94% { opacity: 0; transform: scale(1.7); }
-  100% { opacity: 0; }
-}
 @keyframes runner-bob {
   50% { transform: translateY(-2.5px); }
 }

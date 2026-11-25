@@ -1,7 +1,10 @@
+import { useState } from 'react'
 import { profile } from '../data.js'
 import RunnerLoop from './RunnerLoop.jsx'
 
 export default function Hero() {
+  const [paused, setPaused] = useState(false)
+
   return (
     <section className="hero" id="top">
       <div className="container hero__grid">
@@ -26,9 +29,25 @@ export default function Hero() {
           </ul>
         </div>
 
-        <div className="hero__visual">
-          <div className="hero__blob" />
-          <RunnerLoop />
+        <div className="hero__art">
+          <div className="hero__visual">
+            <div className="hero__blob" />
+            <RunnerLoop paused={paused} />
+          </div>
+          {/* Contrôle de pause, sous l'animation */}
+          <button
+            type="button"
+            className="loop-pause"
+            onClick={() => setPaused((p) => !p)}
+            aria-label={paused ? "Reprendre l'animation" : "Mettre l'animation en pause"}
+            title={paused ? 'Lecture' : 'Pause'}
+          >
+            {paused ? (
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor" /></svg>
+            ) : (
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" fill="currentColor" /></svg>
+            )}
+          </button>
         </div>
       </div>
     </section>
