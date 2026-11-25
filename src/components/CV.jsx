@@ -12,14 +12,13 @@ export default function CV() {
             <p>{cvInfo.text}</p>
             <div className="hero__actions">
               <a className="btn btn--primary" href={profile.cv} target="_blank" rel="noreferrer">
-                Ouvrir le CV
-              </a>
+                Ouvrir le CV<span className="sr-only"> (s'ouvre dans un nouvel onglet)</span></a>
               <a className="btn btn--ghost" href={profile.cv} download="CV-Remi-Monier.pdf">
                 Télécharger (PDF)
               </a>
             </div>
             <p className="cv__ats">
-              <a href={profile.cvAts} target="_blank" rel="noreferrer">Version ATS (PDF sobre)</a>
+              <a href={profile.cvAts} target="_blank" rel="noreferrer">Version ATS (PDF sobre)<span className="sr-only"> (s'ouvre dans un nouvel onglet)</span></a>
             </p>
           </div>
 

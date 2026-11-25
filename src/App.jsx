@@ -11,8 +11,9 @@ import { profile } from './data.js'
 export default function App() {
   return (
     <>
+      <a className="skip-link" href="#contenu">Aller au contenu</a>
       <Nav />
-      <main>
+      <main id="contenu" tabIndex={-1}>
         <Hero />
         <About />
         <Future />

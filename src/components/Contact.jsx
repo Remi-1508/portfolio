@@ -12,8 +12,8 @@ export default function Contact() {
 
           <div className="hero__actions hero__actions--center">
             <a className="btn btn--primary" href={`mailto:${profile.email}`}>M'écrire un e-mail</a>
-            <a className="btn btn--ghost" href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
-            <a className="btn btn--ghost" href={profile.github} target="_blank" rel="noreferrer">GitHub</a>
+            <a className="btn btn--ghost" href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn<span className="sr-only"> (s'ouvre dans un nouvel onglet)</span></a>
+            <a className="btn btn--ghost" href={profile.github} target="_blank" rel="noreferrer">GitHub<span className="sr-only"> (s'ouvre dans un nouvel onglet)</span></a>
           </div>
         </Reveal>
       </div>

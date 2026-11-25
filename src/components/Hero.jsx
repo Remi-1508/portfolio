@@ -12,7 +12,7 @@ export default function Hero() {
           </h1>
           <p className="hero__role">{profile.role}</p>
           <p className="hero__tagline">{profile.tagline}</p>
-          <p className="status"><span className="status__dot" />{profile.status}</p>
+          <p className="status"><span className="status__dot" aria-hidden="true" />{profile.status}</p>
 
           <div className="hero__actions">
             <a className="btn btn--primary" href="#contact">Me contacter</a>
@@ -20,13 +20,13 @@ export default function Hero() {
           </div>
 
           <ul className="hero__links">
-            <li><a href={profile.github} target="_blank" rel="noreferrer">GitHub</a></li>
-            <li><a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a></li>
-            <li><a href={profile.cv} target="_blank" rel="noreferrer">CV</a></li>
+            <li><a href={profile.github} target="_blank" rel="noreferrer">GitHub<span className="sr-only"> (s'ouvre dans un nouvel onglet)</span></a></li>
+            <li><a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn<span className="sr-only"> (s'ouvre dans un nouvel onglet)</span></a></li>
+            <li><a href={profile.cv} target="_blank" rel="noreferrer">CV<span className="sr-only"> (s'ouvre dans un nouvel onglet)</span></a></li>
           </ul>
         </div>
 
-        <div className="hero__visual" aria-hidden="false">
+        <div className="hero__visual">
           <div className="hero__blob" />
           <RunnerLoop />
         </div>

@@ -1,13 +1,15 @@
+import { useRef, useState } from 'react'
+
 // Petit personnage rond qui court en boucle entre les quatre pôles du profil.
 // Animation 100 % SVG + CSS (voir la section « Runner » de styles.css).
 const LAP = '16s'
 const PATH = 'M100 110H300V310H100Z'
 
 const PILLS = [
-  { x: 100, y: 50, label: 'Data', delay: '0s' },
-  { x: 300, y: 50, label: 'Code', delay: '-1s' },
-  { x: 300, y: 360, label: 'IA', delay: '-2s' },
-  { x: 100, y: 360, label: 'Humain', delay: '-3s', accent: true },
+  { x: 100, y: 50, label: 'Data', delay: '0s', tone: 'blue' },
+  { x: 300, y: 50, label: 'Code', delay: '-1s', tone: 'violet' },
+  { x: 300, y: 360, label: 'IA', delay: '-2s', tone: 'amber' },
+  { x: 100, y: 360, label: 'Humain', delay: '-3s', tone: 'rose' },
 ]
 
 function Runner() {
@@ -25,6 +27,8 @@ function Runner() {
           dur={LAP}
           repeatCount="indefinite"
         />
+        <g className="runner__poof"><circle cx="12" cy="-3" r="4" /><circle cx="19" cy="-5" r="3" /></g>
+        <g className="runner__trip">
         <g className="runner__step">
           <g className="runner__foot runner__foot--a"><ellipse cx="-6" cy="-3" rx="5.5" ry="3.5" /></g>
           <g className="runner__foot runner__foot--b"><ellipse cx="6" cy="-3" rx="5.5" ry="3.5" /></g>
@@ -54,17 +58,33 @@ function Runner() {
             <path d="M-3 -10.5Q0 -7.5 3 -10.5" fill="none" stroke="#3a2420" strokeWidth="1.5" strokeLinecap="round" />
           </g>
         </g>
+        </g>
       </g>
     </g>
   )
 }
 
 export default function RunnerLoop() {
+  const svgRef = useRef(null)
+  const [paused, setPaused] = useState(false)
+
+  // Mécanisme de pause (accessibilité : animation de plus de 5 secondes)
+  const togglePause = () => {
+    const svg = svgRef.current
+    if (svg?.pauseAnimations) {
+      if (paused) svg.unpauseAnimations()
+      else svg.pauseAnimations()
+    }
+    setPaused(!paused)
+  }
+
   const reduceMotion =
     typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
 
   return (
-    <svg className="runner-loop" viewBox="0 0 400 400" role="img" aria-label="Un petit personnage court entre Data, Code, IA et Humain">
+    <>
+    <svg ref={svgRef} className={`runner-loop ${paused ? 'is-paused' : ''}`} viewBox="0 0 400 400" role="img" aria-label="Un petit personnage court entre Data, Code, IA et Humain">
+      <title>Un petit personnage rond court en boucle entre Data, Code, IA et Humain autour d'un R</title>
       <defs>
         <clipPath id="loopClip"><circle cx="200" cy="200" r="186" /></clipPath>
       </defs>
@@ -85,17 +105,17 @@ export default function RunnerLoop() {
 
       {PILLS.map((p) => (
         <g key={p.label} className="runner-loop__pill" style={{ animationDelay: p.delay }}>
-          <rect x={p.x - 48} y={p.y - 18} width="96" height="36" rx="18" className={p.accent ? 'is-accent' : ''} />
-          <text x={p.x} y={p.y + 5} textAnchor="middle" className={p.accent ? 'is-accent' : ''}>{p.label}</text>
+          <rect x={p.x - 48} y={p.y - 18} width="96" height="36" rx="18" className={`tone-${p.tone}`} />
+          <text x={p.x} y={p.y + 5} textAnchor="middle" className={`tone-${p.tone}`}>{p.label}</text>
         </g>
       ))}
 
       {/* Un petit effet à chaque arrivée */}
       <g className="runner-loop__fx" style={{ animationDelay: '-.3s' }}>
-        <rect x="158" y="40" width="7" height="12" rx="2" fill="#c9627a" />
-        <rect x="168" y="32" width="7" height="20" rx="2" fill="#8a5a44" />
-        <rect x="178" y="24" width="7" height="28" rx="2" fill="#c9627a" />
-        <rect x="188" y="34" width="7" height="18" rx="2" fill="#8a5a44" />
+        <rect x="158" y="40" width="7" height="12" rx="2" fill="#5b9bd5" />
+        <rect x="168" y="32" width="7" height="20" rx="2" fill="#8fbbe6" />
+        <rect x="178" y="24" width="7" height="28" rx="2" fill="#5b9bd5" />
+        <rect x="188" y="34" width="7" height="18" rx="2" fill="#8fbbe6" />
       </g>
       <text className="runner-loop__fx runner-loop__code" style={{ animationDelay: '3.7s' }} x="222" y="58" textAnchor="middle">&lt;/&gt;</text>
       <path className="runner-loop__fx" style={{ animationDelay: '7.7s' }} d="M226 348L229.5 358L240 362L229.5 366L226 376L222.5 366L212 362L222.5 358Z" fill="#EF9F27" />
@@ -106,5 +126,9 @@ export default function RunnerLoop() {
         <Runner />
       </g>
     </svg>
+    <button type="button" className="loop-pause" onClick={togglePause} aria-pressed={paused}>
+      {paused ? 'Reprendre l\'animation' : 'Mettre l\'animation en pause'}
+    </button>
+    </>
   )
 }

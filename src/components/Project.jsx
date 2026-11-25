@@ -28,12 +28,10 @@ export default function Project() {
 
           <div className="hero__actions">
             <a className="btn btn--primary" href={project.repo} target="_blank" rel="noreferrer">
-              Voir le code sur GitHub
-            </a>
+              Voir le code sur GitHub<span className="sr-only"> (s'ouvre dans un nouvel onglet)</span></a>
             {project.demo && (
               <a className="btn btn--ghost" href={project.demo} target="_blank" rel="noreferrer">
-                Essayer la démo
-              </a>
+                Essayer la démo<span className="sr-only"> (s'ouvre dans un nouvel onglet)</span></a>
             )}
           </div>
         </Reveal>
