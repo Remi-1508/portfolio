@@ -491,9 +491,9 @@ main:focus {
   fill: #fff;
 }
 .runner-loop__pill rect.tone-cream { fill: #fffaf2; stroke: #3b2520; stroke-width: 2; }
-.runner-loop__pill rect.tone-blush { fill: #a8405b; }
-.runner-loop__pill rect.tone-caramel { fill: #8a5a44; }
-.runner-loop__pill rect.tone-mauve { fill: #3b2520; }
+.runner-loop__pill rect.tone-blush { fill: #a8405b; stroke: #6e2338; stroke-width: 1.5; }
+.runner-loop__pill rect.tone-caramel { fill: #8a5a44; stroke: #4f3024; stroke-width: 1.5; }
+.runner-loop__pill rect.tone-mauve { fill: #3b2520; stroke: #9b6a58; stroke-width: 1.5; }
 .runner-loop__pill text {
   fill: var(--ink);
   font-family: var(--font-sans);
