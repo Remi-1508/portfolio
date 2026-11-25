@@ -409,38 +409,164 @@ ol {
     transform: rotate(6deg);
   }
 }
-.route-art {
+/* ───────────── Runner : personnage qui court entre les 4 pôles ───────────── */
+.runner-loop {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
+  overflow: visible;
 }
-.route-art__streets path {
+.runner-loop__grid path {
   fill: none;
-  stroke: rgba(58, 36, 32, 0.1);
+  stroke: rgba(58, 36, 32, 0.07);
   stroke-width: 1.5;
 }
-.route-art__path {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  animation: draw 3.2s 0.5s cubic-bezier(0.5, 0, 0.2, 1) forwards;
+.runner-loop__track,
+.runner-loop__dashes {
+  fill: none;
+  stroke: var(--rose-deep);
+  stroke-linejoin: round;
+  stroke-linecap: round;
 }
-.route-art__start {
-  fill: var(--ink);
-  stroke: #fff;
+.runner-loop__track {
+  stroke-opacity: 0.22;
+  stroke-width: 5;
+}
+.runner-loop__dashes {
   stroke-width: 3;
+  stroke-dasharray: 6 10;
+  animation: loop-dash 4s linear infinite;
 }
-@keyframes draw {
-  to {
-    stroke-dashoffset: 0;
-  }
+.runner-loop__mono circle {
+  fill: var(--ink);
 }
-.chip--float {
-  position: absolute;
-  left: 4%;
-  bottom: 6%;
-  background: #fff;
-  box-shadow: var(--shadow);
+.runner-loop__mono text {
+  fill: var(--rose-soft);
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 34px;
+}
+.runner-loop__mono {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: loop-breathe 3.5s ease-in-out infinite;
+}
+.runner-loop__pill rect {
+  fill: #fff;
+}
+.runner-loop__pill rect.is-accent {
+  fill: var(--rose-deep);
+}
+.runner-loop__pill text {
+  fill: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+}
+.runner-loop__pill text.is-accent {
+  fill: #fff;
+}
+.runner-loop__pill {
+  animation: loop-float 4s ease-in-out infinite;
+}
+.runner-loop__fx {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: loop-fx 16s ease infinite;
+}
+.runner-loop__code {
+  fill: var(--rose-deep);
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+/* Le personnage : une foulée tranquille, sans saut */
+.runner__shadow {
+  fill: var(--ink);
+  opacity: 0.18;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: runner-shadow 0.6s ease-in-out infinite;
+}
+.runner__step {
+  animation: runner-bob 0.3s ease-in-out infinite;
+}
+.runner__body {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: runner-squash 0.3s ease-in-out infinite;
+}
+.runner__skin {
+  fill: var(--brown);
+}
+.runner__band {
+  fill: none;
+  stroke: var(--rose-deep);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+}
+.runner__foot ellipse {
+  fill: #5a3a2e;
+}
+.runner__foot--a {
+  animation: runner-foot 0.6s linear infinite;
+}
+.runner__foot--b {
+  animation: runner-foot 0.6s linear infinite -0.3s;
+}
+.runner__arm {
+  stroke: var(--brown);
+  stroke-width: 4.5;
+  stroke-linecap: round;
+}
+.runner__arm--a {
+  animation: runner-arm 0.6s ease-in-out infinite;
+}
+.runner__arm--b {
+  animation: runner-arm 0.6s ease-in-out infinite -0.3s;
+}
+
+@keyframes runner-bob {
+  50% { transform: translateY(-2.5px); }
+}
+@keyframes runner-squash {
+  0%, 100% { transform: rotate(6deg) scale(1.06, 0.94); }
+  50% { transform: rotate(6deg) scale(0.97, 1.04); }
+}
+@keyframes runner-shadow {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(0.85); }
+}
+@keyframes runner-foot {
+  0% { transform: translate(-6px, 0); }
+  25% { transform: translate(0, -4px); }
+  50% { transform: translate(6px, 0); }
+  75% { transform: translate(0, 0); }
+  100% { transform: translate(-6px, 0); }
+}
+@keyframes runner-arm {
+  0%, 100% { transform: rotate(40deg); }
+  50% { transform: rotate(-40deg); }
+}
+@keyframes loop-dash {
+  to { stroke-dashoffset: -32; }
+}
+@keyframes loop-float {
+  50% { transform: translateY(-2px); }
+}
+@keyframes loop-breathe {
+  50% { transform: scale(1.05); }
+}
+@keyframes loop-fx {
+  0% { opacity: 0; transform: scale(0.4); }
+  3% { opacity: 1; transform: scale(1.15); }
+  5% { transform: scale(1); }
+  12% { opacity: 1; }
+  16% { opacity: 0; transform: scale(0.85); }
+  100% { opacity: 0; }
 }
 
 /* ───────────── À propos ───────────── */
@@ -949,9 +1075,6 @@ ol {
   .reveal {
     opacity: 1;
     transform: none;
-  }
-  .route-art__path {
-    stroke-dashoffset: 0;
   }
   .timeline::before {
     transform: none;

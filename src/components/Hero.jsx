@@ -1,34 +1,5 @@
 import { profile } from '../data.js'
-
-// Un parcours GPX qui se dessine en forme de cœur : clin d'œil à RunToDraw.
-function RouteArt() {
-  return (
-    <svg className="route-art" viewBox="0 0 400 400" role="img" aria-label="Un parcours GPX dessinant un cœur">
-      <defs>
-        <linearGradient id="routeGrad" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#E58CA0" />
-          <stop offset="100%" stopColor="#8A5A44" />
-        </linearGradient>
-      </defs>
-      {/* faux réseau de rues */}
-      <g className="route-art__streets">
-        <path d="M20 90 H380 M20 160 H380 M20 230 H380 M20 300 H380" />
-        <path d="M80 20 V380 M150 20 V380 M220 20 V380 M290 20 V380 M350 20 V380" />
-      </g>
-      <path
-        className="route-art__path"
-        d="M200 330 C 90 250 50 190 50 140 C 50 90 90 62 130 62 C 165 62 190 82 200 110 C 210 82 235 62 270 62 C 310 62 350 90 350 140 C 350 190 310 250 200 330 Z"
-        pathLength="1"
-        fill="none"
-        stroke="url(#routeGrad)"
-        strokeWidth="7"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <circle className="route-art__start" cx="200" cy="330" r="9" />
-    </svg>
-  )
-}
+import RunnerLoop from './RunnerLoop.jsx'
 
 export default function Hero() {
   return (
@@ -57,8 +28,7 @@ export default function Hero() {
 
         <div className="hero__visual" aria-hidden="false">
           <div className="hero__blob" />
-          <RouteArt />
-          <div className="chip chip--float">📍 {profile.location}</div>
+          <RunnerLoop />
         </div>
       </div>
     </section>
