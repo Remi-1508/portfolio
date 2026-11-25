@@ -61,10 +61,6 @@ export default function Hero() {
           <div className="chip chip--float">📍 {profile.location}</div>
         </div>
       </div>
-
-      <a className="scroll-hint" href="#apropos" aria-label="Descendre">
-        <span />
-      </a>
     </section>
   )
 }

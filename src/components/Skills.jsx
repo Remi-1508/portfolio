@@ -24,11 +24,10 @@ export default function Skills() {
 
           <Reveal delay={skills.length * 70} className="card skill skill--langs">
             <h3 className="skill__title">Langues</h3>
-            <ul className="langs">
+            <ul className="skill__chips">
               {languages.map((l) => (
-                <li key={l.name}>
-                  <strong>{l.name}</strong>
-                  <span>{l.level}</span>
+                <li key={l.name} className="chip">
+                  <strong>{l.name}</strong> · {l.level}
                 </li>
               ))}
             </ul>

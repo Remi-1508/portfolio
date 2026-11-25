@@ -3,7 +3,7 @@ import { cvInfo, profile } from '../data.js'
 
 export default function CV() {
   return (
-    <section className="section" id="cv">
+    <section className="section section--soft" id="cv">
       <div className="container">
         <Reveal className="cv card">
           <div className="cv__text">

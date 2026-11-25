@@ -1,4 +1,4 @@
-# Portfolio — Rémi Monier
+# Portfolio - Rémi Monier
 
 Site one-page en **React + Vite**, palette rose poudré & chocolat, responsive, animations douces au scroll.
 

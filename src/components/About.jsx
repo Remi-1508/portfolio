@@ -3,7 +3,7 @@ import { about } from '../data.js'
 
 export default function About() {
   return (
-    <section className="section" id="apropos">
+    <section className="section section--soft" id="apropos">
       <div className="container">
         <Reveal>
           <p className="eyebrow">À propos</p>
