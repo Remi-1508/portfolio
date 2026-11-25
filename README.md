@@ -15,7 +15,7 @@ npm run build      # génère le dossier dist/
 Tout le contenu est dans **`src/data.js`** (cherche les `TODO`) :
 
 1. Le lien de la démo RunToDraw (`project.demo`), si elle existe
-2. Tes CV : remplace les PDF du dossier **`public/`** (`CV-Remi-Monier.pdf` et `CV-Remi-Monier-ATS.pdf`)
+2. Ton CV : remplace le PDF du dossier **`public/`** (`CV-Remi-Monier.pdf`)
 
 Les couleurs se changent en haut de `src/styles.css` (variables `--rose`, `--ink`, `--brown`…).
 
@@ -34,5 +34,5 @@ src/
   App.jsx            assemble les sections
   components/        Nav, Hero, About, Future, Skills, Project, CV, Contact, Reveal
 public/
-  CV-*.pdf           tes CV (version design et version ATS)
+  CV-Remi-Monier.pdf ton CV
 ```

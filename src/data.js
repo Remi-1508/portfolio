@@ -15,9 +15,8 @@ export const profile = {
   github: 'https://github.com/Remi-1508',
   linkedin: 'https://www.linkedin.com/in/remi-monier-ensc',
   email: 'remimonier123@gmail.com',
-  // Les CV sont dans le dossier /public
+  // Le CV est dans le dossier /public
   cv: './CV-Remi-Monier.pdf',
-  cvAts: './CV-Remi-Monier-ATS.pdf',
 }
 
 export const navLinks = [
