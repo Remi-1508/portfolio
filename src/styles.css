@@ -817,15 +817,17 @@ ol {
 }
 
 @media (max-width: 960px) {
-  .hero__grid,
   .about__grid,
   .project,
   .cv {
     grid-template-columns: 1fr;
   }
+  /* Texte et dessin restent côte à côte, en plus compact */
+  .hero__grid {
+    gap: 32px;
+  }
   .hero__visual {
-    max-width: 340px;
-    order: -1;
+    max-width: 380px;
   }
   .hero {
     padding-top: calc(var(--nav-h) + 8px);
@@ -874,6 +876,17 @@ ol {
     border-radius: 0;
     font-size: 1.05rem;
     border-bottom: 1px solid var(--line);
+  }
+}
+
+/* Trop étroit pour deux colonnes : le dessin passe sous le texte */
+@media (max-width: 720px) {
+  .hero__grid {
+    grid-template-columns: 1fr;
+  }
+  .hero__visual {
+    max-width: 320px;
+    margin-top: 8px;
   }
 }
 
