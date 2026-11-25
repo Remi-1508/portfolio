@@ -435,7 +435,7 @@ main:focus {
   position: absolute;
   inset: 4%;
   border-radius: 46% 54% 52% 48% / 52% 44% 56% 48%;
-  background: linear-gradient(145deg, var(--rose-soft), #f0d3c8 60%, #e9c2b0);
+  background: #f2d6cd;
   animation: morph 14s ease-in-out infinite alternate;
 }
 @keyframes morph {
@@ -490,20 +490,20 @@ main:focus {
 .runner-loop__pill rect {
   fill: #fff;
 }
-.runner-loop__pill rect.tone-cream { fill: #fbefd9; }
-.runner-loop__pill rect.tone-blush { fill: #f7d3da; }
-.runner-loop__pill rect.tone-caramel { fill: #ecd0b6; }
-.runner-loop__pill rect.tone-mauve { fill: #e9b6c2; }
+.runner-loop__pill rect.tone-cream { fill: #fffaf2; stroke: #3b2520; stroke-width: 2; }
+.runner-loop__pill rect.tone-blush { fill: #a8405b; }
+.runner-loop__pill rect.tone-caramel { fill: #8a5a44; }
+.runner-loop__pill rect.tone-mauve { fill: #3b2520; }
 .runner-loop__pill text {
   fill: var(--ink);
   font-family: var(--font-sans);
   font-size: 14px;
   font-weight: 500;
 }
-.runner-loop__pill text.tone-cream,
+.runner-loop__pill text.tone-cream { fill: #3b2520; }
 .runner-loop__pill text.tone-blush,
-.runner-loop__pill text.tone-caramel,
-.runner-loop__pill text.tone-mauve { fill: var(--ink); }
+.runner-loop__pill text.tone-caramel { fill: #fff; }
+.runner-loop__pill text.tone-mauve { fill: #fff3e8; }
 .runner-loop__pill {
   animation: loop-float 4s ease-in-out infinite;
 }
